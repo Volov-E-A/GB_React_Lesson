@@ -9,13 +9,17 @@ function App() {
     const [arr, setArr] = useState([{name: 'Biba'},{name: 'Bba'},{name: 'Giga'},{name: 'Goga'}])
     return (
         <>
-            <Form />
+            
+            <button onClick={() => setToggle(!toggle)}> toggle </button>
             <hr/>
-            <button onClick={() => setToggle(!toggle)}>{toggle ? 'Hide' : 'show'}</button>
+            <h2>{toggle ? 'Func Comp' : 'Classe Components'} </h2>
+            {!toggle && <Form />}
             {toggle && <FormFunc title = "Func Comp" />}
+            {/* <button onClick={() => setToggle(!toggle)}>{toggle ? 'Hide' : 'show'}</button> */}
+            
             <ul>
-                {arr.map((item) => (
-                    <li>{item.name}</li>
+                {arr.map((item, index) => (
+                    <li key={index}>{item.name}</li>
                 ))}
             </ul>
         </>
